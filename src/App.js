@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  const testa = ["ทดสอบ1", "ทดสอบ2", "ทดสอบ3"];
+
+  const forMap = () => {
+    return testa.map((value) => {
+      return (
+        <div className="list">
+          <div className="list_text">{value}</div>
+          <div className="action">
+            <button className="button__edit">EDIT</button>
+            <button className="button__delete">DELETE</button>
+          </div>
+        </div>
+      );
+    });
+  };
+  // ``
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="App-header">
+        <div className="baord">
+          <div className="input">
+            <input className="inputArea"></input>
+            <button className="button">ADD</button>
+          </div>
+          {forMap()}
+        </div>
+      </div>
     </div>
   );
 }
