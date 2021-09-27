@@ -4,8 +4,12 @@ import "./App.css";
 
 function App() {
   const [todo, setTodo] = useState([]);
-  // ``
+
   const [textArea, setTextArea] = useState();
+
+  const [button, setButton] = useState(false);
+
+  const [valueEdit, setValueEdit] = useState();
 
   const forMap = () => {
     return todo.map((value) => {
@@ -24,17 +28,16 @@ function App() {
       );
     });
   };
-  let validd;
 
   const onInputHandler = (event) => {
-    console.log("textArea", event.target.value);
+    // console.log("textArea", event.target.value);
     setTextArea(event.target.value);
   };
 
-  const onSubmit = () => {
-    // console.log("TODO:", todo);
-    // console.log("TEXTAREA:", textArea);
+  const onSubmit = (data) => {
     setTodo([textArea, ...todo]);
+
+    setTextArea("");
   };
 
   const onDelete = (event) => {
@@ -46,7 +49,26 @@ function App() {
     );
   };
 
-  const onEdit = (event) => {};
+  const onEdit = (event) => {
+    setButton(true);
+    setValueEdit(event.target.name);
+    setTextArea(event.target.name);
+  };
+
+  const onConfirmEdit = () => {
+    setTodo(
+      todo.map((value) => {
+        if (value === valueEdit) {
+          value = textArea;
+          console.log("test");
+        }
+        return value;
+      })
+    );
+    setTextArea("");
+    setButton(false);
+    console.log(todo.length);
+  };
 
   return (
     <div className="App">
@@ -59,9 +81,16 @@ function App() {
               onInput={onInputHandler}
               value={textArea}
             ></input>
-            <button className="button" onClick={onSubmit}>
-              ADD
-            </button>
+
+            {button ? (
+              <button className="button" onClick={onConfirmEdit}>
+                OK!
+              </button>
+            ) : (
+              <button className="button" onClick={onSubmit}>
+                ADD
+              </button>
+            )}
           </div>
           {forMap()}
         </div>
