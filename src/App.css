@@ -1,21 +1,5 @@
-.App {
-  text-align: center;
-  background-color: #61dafb;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #7e95c4;
+  background-color: #fcfcfc;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -29,15 +13,20 @@
   color: #61dafb;
 }
 .board{
-  margin-top: 2.5rem;
+  border: solid rgb(212, 211, 211);
+  box-shadow: 15px 15px rgb(121, 182, 190);
+  border-radius: 1rem;
+  margin-top: 1.5rem;
   width: 50%;
-  height: 90vh;
-  background-color: rgb(231, 207, 207);
+  /* height: 90vh; */
+  background-color: #fcfcfc;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
   padding: 0.5rem;
+  padding-bottom: 1.5rem;
+  
 }
 
 .input{
@@ -45,10 +34,11 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 90%;
+  width: 95%;
   height: 40px;
-  background-color: rgb(230, 138, 0);
+  background-color: rgb(235, 150, 110);
   margin-bottom: 1.5rem ;
+  border-radius: 15px;
 }
 
 .list{
@@ -57,23 +47,45 @@
   justify-content: space-between;
   align-items: center;
   width: 90%;
-  background-color: rgb(187, 187, 212);
+  background-color: rgb(121, 182, 190);
   padding: 10px;
   margin-top: 8px;
+  box-shadow: 4px 4px rgb(104, 105, 105);
+}
+
+.list:hover
+.list:active{
+  border: solid red;
+  background-color: red;
 }
 
 .inputArea{
-  width: 70%;
+  width: 80%;
   border-radius: 5px;
   border: none;
+  outline: none;
+
+
 }
 .button{
   width: 8rem;
   border-radius: 5rem;
   border: none;
+  cursor: pointer;
+  
 }
+
+.button:hover,
+.button:active{
+  color: rgb(55, 43, 216);
+  /* background-color: burlywood; */
+  border: solid rgb(114, 189, 176);
+}
+
 .list_text{
-  color: gray;
+  font-family: 'Open Sans', sans-serif;;
+  color: rgb(255, 255, 255);
+  font-size: medium;
 }
 .action{
   display: flex;
@@ -81,23 +93,27 @@
 }
 
 .button__edit{
+
   width: 5rem;
   margin: 5px;
+  border: none;
+  color: #1455d8;
+  cursor: pointer;
+  background-color: rgb(240, 240, 240);
+  border-radius: 4px;
 }
 .button__delete{
+
   width: 5rem;
-
+  color: red;
+  cursor: pointer;
+}
+.button__delete:hover,
+.button__delete:active{
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  background-color: rgb(221, 88, 88);
+   border: none; 
+   border-radius: 4px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.center{
-  background-color: bisque;
-}
